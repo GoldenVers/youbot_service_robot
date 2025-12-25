@@ -1,0 +1,21 @@
+[0.807s] Invoking command in '/home/youssef/fyp_ws/src/youbot_navigation': PYTHONPATH=/home/youssef/fyp_ws/src/build/youbot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/fyp_ws/src/install/youbot_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/youbot_navigation build --build-base /home/youssef/fyp_ws/src/build/youbot_navigation/build install --record /home/youssef/fyp_ws/src/build/youbot_navigation/install.log --single-version-externally-managed install_data
+[1.037s] running egg_info
+[1.038s] writing ../build/youbot_navigation/youbot_navigation.egg-info/PKG-INFO
+[1.038s] writing dependency_links to ../build/youbot_navigation/youbot_navigation.egg-info/dependency_links.txt
+[1.038s] writing entry points to ../build/youbot_navigation/youbot_navigation.egg-info/entry_points.txt
+[1.039s] writing requirements to ../build/youbot_navigation/youbot_navigation.egg-info/requires.txt
+[1.039s] writing top-level names to ../build/youbot_navigation/youbot_navigation.egg-info/top_level.txt
+[1.040s] reading manifest file '../build/youbot_navigation/youbot_navigation.egg-info/SOURCES.txt'
+[1.041s] adding license file 'LICENSE'
+[1.041s] writing manifest file '../build/youbot_navigation/youbot_navigation.egg-info/SOURCES.txt'
+[1.042s] running build
+[1.042s] running build_py
+[1.042s] running install
+[1.042s] running install_lib
+[1.044s] running install_data
+[1.044s] running install_egg_info
+[1.046s] removing '/home/youssef/fyp_ws/src/install/youbot_navigation/lib/python3.10/site-packages/youbot_navigation-0.0.0-py3.10.egg-info' (and everything under it)
+[1.046s] Copying ../build/youbot_navigation/youbot_navigation.egg-info to /home/youssef/fyp_ws/src/install/youbot_navigation/lib/python3.10/site-packages/youbot_navigation-0.0.0-py3.10.egg-info
+[1.047s] running install_scripts
+[1.067s] writing list of installed files to '/home/youssef/fyp_ws/src/build/youbot_navigation/install.log'
+[1.084s] Invoked command in '/home/youssef/fyp_ws/src/youbot_navigation' returned '0': PYTHONPATH=/home/youssef/fyp_ws/src/build/youbot_navigation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/youssef/fyp_ws/src/install/youbot_navigation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/youbot_navigation build --build-base /home/youssef/fyp_ws/src/build/youbot_navigation/build install --record /home/youssef/fyp_ws/src/build/youbot_navigation/install.log --single-version-externally-managed install_data

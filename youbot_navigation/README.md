@@ -48,3 +48,8 @@ that will automatically launch the nav2 stack, in rviz we choose the /global_cos
 <video width="640" height="480" controls>
   <source src="/home/youssef/fyp_ws/src/nav2 simulation in turtlebot3 house env.mp4" type="video/mp4">
 </video>
+
+
+## future note
+
+the nav2 params needs to be tweaked, as its made for turtlebot3 originally, right now the robot struggle with tight spaces, and the global costmap is rendered big

@@ -1,0 +1,21 @@
+running egg_info
+writing ../build/youbot_manipulation/youbot_manipulation.egg-info/PKG-INFO
+writing dependency_links to ../build/youbot_manipulation/youbot_manipulation.egg-info/dependency_links.txt
+writing entry points to ../build/youbot_manipulation/youbot_manipulation.egg-info/entry_points.txt
+writing requirements to ../build/youbot_manipulation/youbot_manipulation.egg-info/requires.txt
+writing top-level names to ../build/youbot_manipulation/youbot_manipulation.egg-info/top_level.txt
+reading manifest file '../build/youbot_manipulation/youbot_manipulation.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../build/youbot_manipulation/youbot_manipulation.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+creating /home/youssef/fyp_ws/src/install/youbot_manipulation/share/youbot_manipulation/launch
+copying launch/manipulation.launch.py -> /home/youssef/fyp_ws/src/install/youbot_manipulation/share/youbot_manipulation/launch
+running install_egg_info
+removing '/home/youssef/fyp_ws/src/install/youbot_manipulation/lib/python3.10/site-packages/youbot_manipulation-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/youbot_manipulation/youbot_manipulation.egg-info to /home/youssef/fyp_ws/src/install/youbot_manipulation/lib/python3.10/site-packages/youbot_manipulation-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/youssef/fyp_ws/src/build/youbot_manipulation/install.log'

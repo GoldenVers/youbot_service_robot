@@ -9,6 +9,7 @@ setup.py
 ../build/youbot_manipulation/youbot_manipulation.egg-info/requires.txt
 ../build/youbot_manipulation/youbot_manipulation.egg-info/top_level.txt
 ../build/youbot_manipulation/youbot_manipulation.egg-info/zip-safe
+launch/manipulation.launch.py
 resource/youbot_manipulation
 test/test_copyright.py
 test/test_flake8.py
