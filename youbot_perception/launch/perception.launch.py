@@ -30,9 +30,32 @@ def generate_launch_description():
         )
     )
 
+    yolo_node = Node(
+        package='youbot_perception',
+        executable='yolo_ros2_pt',
+        output='screen'
+    )
+    yolov8_node = Node(
+        package='youbot_perception',
+        executable='yolov8_ros2_subscriber',
+        output='screen'
+    )
+    follow_node = Node(
+        package='youbot_perception',
+        executable='follow_human',
+        output='screen'
+    )
+    human_pos_node = Node(
+        package='youbot_perception',
+        executable='human_position_pub',
+        output='screen'
+    )
 
-
-   
     return LaunchDescription([
         description,
+        yolo_node,
+        yolov8_node,
+        follow_node,
+        human_pos_node
     ])
+

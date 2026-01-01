@@ -10,6 +10,7 @@ The workspace is organized into several main packages and folders:
 - **youbot_description/**: Contains robot description files (URDF, meshes, config, launch, RViz, and world files) for simulating the KUKA YouBot in Gazebo and other environments.
 - **youbot_manipulation/**: Provides manipulation-related code, launch files, and resources for controlling the YouBot's arm and gripper.
 - **youbot_navigation/**: Implements navigation, SLAM, localization, and path planning using the Navigation2 stack. Includes launch files, configuration, and a Jupyter tutorial.
+- **youbot_perception/**: This one implements YOLOv8 system to the robot, as of now its still under development, but its successfully working navigational wise. 
 
 
 ## How to Use
@@ -45,7 +46,14 @@ The workspace is organized into several main packages and folders:
 - SLAM, localization, and mapping
 - Example Jupyter notebook for navigation workflow
 
-## Video Demo
+### youbot_perception
+- YOLOv8 integration to detect humans
+- Move toward the human and stop at a certain distance
+-further improvement: move the robotic arm to either give or take something from the human
+
+## Video Demos
+
+### navigation stack test:
 
 Below is a demonstration video of Navigation2 in a TurtleBot3 house environment:
 
@@ -56,3 +64,15 @@ Below is a demonstration video of Navigation2 in a TurtleBot3 house environment:
 If the video does not play in your markdown viewer, you can open it directly from the workspace at:
 
 `nav2 simulation in turtlebot3 house env.mp4`
+
+### Manipulation package test:
+
+<video width="640" height="480" controls>
+  <source src="manipulation test in gazebo.mp4" type="video/mp4">
+</video>
+
+### Perception package test:
+
+<video width="640" height="480" controls>
+  <source src="robot_human_detection_test.mp4" type="video/mp4">
+</video>

@@ -44,10 +44,7 @@ def generate_launch_description():
             slam_params_file,
             {'use_sim_time': use_sim_time}
         ],
-        remappings=[
-            ('/scan', '/youbot/scan'),
-            ('/odom', '/youbot/odom'),
-        ]
+
     )
     
     # Create the launch description
