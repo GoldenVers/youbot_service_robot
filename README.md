@@ -53,26 +53,14 @@ The workspace is organized into several main packages and folders:
 
 ## Video Demos
 
-### navigation stack test:
+### Navigation Stack Test
 
-Below is a demonstration video of Navigation2 in a TurtleBot3 house environment:
+![Navigation Demo](youbot_navigation/nav2_demo.gif)
 
-<video width="640" height="480" controls>
-  <source src="nav2 simulation in turtlebot3 house env.mp4" type="video/mp4">
-</video>
+### Manipulation Package Test
 
-If the video does not play in your markdown viewer, you can open it directly from the workspace at:
+![Manipulation Demo](youbot_manipulation/manipulation_demo.gif)
 
-`nav2 simulation in turtlebot3 house env.mp4`
+### Perception Package Test
 
-### Manipulation package test:
-
-<video width="640" height="480" controls>
-  <source src="manipulation test in gazebo.mp4" type="video/mp4">
-</video>
-
-### Perception package test:
-
-<video width="640" height="480" controls>
-  <source src="robot_human_detection_test.mp4" type="video/mp4">
-</video>
+![Perception Demo](youbot_perception/perception_demo.gif)
