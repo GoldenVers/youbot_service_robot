@@ -1,0 +1,791 @@
+<?xml version="1.0" ?>
+<robot name="youbot">
+
+
+
+  <link name="base_link">
+    <inertial>
+      <mass value="22.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="5.652232699207" ixy="-0.009719934438" ixz="1.293988226423" iyy="5.669473158652" iyz="-0.007379583694" izz="3.683196351726"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/base.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/base_convex.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_footprint_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <child link="base_link"/>
+    <parent link="base_footprint"/>
+  </joint> 
+  <link name="base_footprint">
+
+
+  
+  </link>
+  <joint name="caster_joint_fl" type="fixed">
+    <origin rpy="0 0 0" xyz="0.228 0.158 -0.034"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="caster_link_fl"/>
+  </joint>
+  <link name="caster_link_fl">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+  </link>
+  <joint name="wheel_joint_fl" type="continuous">
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="10"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="caster_link_fl"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <child link="wheel_link_fl"/>
+  </joint>
+  <link name="wheel_link_fl">
+    <inertial>
+      <mass value="0.4"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/front-left_wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster_joint_fr" type="fixed">
+    <origin rpy="0 0 0" xyz="0.228 -0.158 -0.034"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="caster_link_fr"/>
+  </joint>
+  <link name="caster_link_fr">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+  </link>
+  <joint name="wheel_joint_fr" type="continuous">
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="10"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="caster_link_fr"/>
+    <child link="wheel_link_fr"/>
+  </joint>
+  <link name="wheel_link_fr">
+    <inertial>
+      <mass value="0.4"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/front-right_wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster_joint_bl" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.228 0.158 -0.034"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="caster_link_bl"/>
+  </joint>
+  <link name="caster_link_bl">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+  </link>
+  <joint name="wheel_joint_bl" type="continuous">
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="10"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="caster_link_bl"/>
+    <child link="wheel_link_bl"/>
+  </joint>
+  <link name="wheel_link_bl">
+    <inertial>
+      <mass value="0.4"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/back-left_wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="caster_joint_br" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.228 -0.158 -0.034"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_link"/>
+    <child link="caster_link_br"/>
+  </joint>
+  <link name="caster_link_br">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+  </link>
+  <joint name="wheel_joint_br" type="continuous">
+    <axis xyz="0 1 0"/>
+    <limit effort="30" velocity="10"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="caster_link_br"/>
+    <child link="wheel_link_br"/>
+  </joint>
+  <link name="wheel_link_br">
+    <inertial>
+      <mass value="0.4"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983" iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_base/back-right_wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+ 
+  <joint name="base_laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_laser_link"/>
+    <origin xyz="0.3 0 0.03" rpy="0 0 0"/>
+  </joint>
+
+
+  <link name="base_laser_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0"
+              iyy="0.001" iyz="0"
+              izz="0.001"/>
+    </inertial>
+
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="base_laser_link">
+    <sensor name="front_laser" type="ray">
+      <always_on>true</always_on>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.5708</min_angle>
+            <max_angle>1.5708</max_angle>
+          </horizontal>
+        </scan>
+
+        <range>
+          <min>0.05</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+
+      <plugin name="gazebo_ros_laser" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <argument>~/out:=scan</argument>
+        </ros>
+        <topicName>/scan</topicName>
+        <frameName>base_laser_link</frameName>
+        <output_type>sensor_msgs/LaserScan</output_type>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+     <!-- camera joint -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.3 0 0.08" rpy="0 0 0"/>
+  </joint>
+
+  <!-- camera link -->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.01 0.03 0.03"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.03 0.03"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="-1.570796 0 -1.570796"/>
+    <parent link="camera_link"/>
+    <child link="camera_link_optical"/>
+  </joint>
+
+  <link name="camera_link_optical"></link>
+  <gazebo reference="camera_link">
+          <sensor name="camera" type="depth">
+              <pose> 0 0 0 0 0 0 </pose>
+              <visualize>true</visualize>
+              <update_rate>10</update_rate>
+              <camera>
+                  <horizontal_fov>1.089</horizontal_fov>
+                  <image>
+                      <format>R8G8B8</format>
+                      <width>640</width>
+                      <height>480</height>
+                  </image>
+                  <clip>
+                      <near>0.05</near>
+                      <far>8.0</far>
+                  </clip>
+              </camera>
+              <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                  <frame_name>camera_link_optical</frame_name>
+                  <min_depth>0.1</min_depth>
+                  <max_depth>100</max_depth>
+              </plugin>
+          </sensor>
+  </gazebo>
+
+
+
+  <gazebo>
+    <plugin name='base_controller'
+		        filename='libgazebo_ros_planar_move.so'>
+			<ros>	
+				<namespace>/youbot</namespace>
+				<!-- <argument>cmd_vel:=cmd_vel</argument>
+				<argument>odom:=odom</argument> -->
+			</ros>
+
+			<!-- Set control loop update rate -->
+			<update_rate>100</update_rate>
+			<!-- Set odom publish rate -->
+			<publish_rate>10</publish_rate>
+
+			<!-- Set if odom required -->
+			<publish_odom>true</publish_odom>
+			<publish_odom_tf>true</publish_odom_tf>
+
+			<!-- Frame IDs -->
+			<robot_base_frame>base_footprint</robot_base_frame>
+
+			<!-- Set odom covariance -->
+			<covariance_x>0.0001</covariance_x>
+			<covariance_y>0.0001</covariance_y>
+			<covariance_yaw>0.01</covariance_yaw>
+	  </plugin>
+  </gazebo>
+
+
+    <!--adding ros2 control for the manipulation-->
+
+  <ros2_control name="Manipulation" type="system">
+      <hardware>
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+      
+      <!-- Arm joints -->
+      <joint name="arm_joint_1">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="arm_joint_2">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="arm_joint_3">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="arm_joint_4">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="arm_joint_5">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      
+      <!-- Gripper joints -->
+      <joint name="gripper_finger_joint_l">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="gripper_finger_joint_r">
+          <command_interface name="position"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+      </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+      <parameters>/home/youssef/fyp_ws/src/youbot_manipulation/config/arm_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+
+  
+
+
+  
+
+  <joint name="plate_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.159 0 0.055"/>
+    <parent link="base_link"/>
+    <child link="plate_link"/>
+  </joint>
+  <link name="plate_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.025"/>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.025"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_plate/plate.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -0.025"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_plate/plate_convex.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_0" type="fixed">
+    <origin rpy="0 0 0" xyz="0.143 0 0.046"/>
+    <parent link="base_link"/>
+    <child link="arm_link_0"/>
+  </joint>
+  <link name="arm_link_0">
+    <inertial>
+
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.845"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm0.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+ 
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm0_convex.dae"/>
+ 
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_1" type="revolute">
+    <origin rpy="0 0 2.96705722222" xyz="0.024 0 0.095"/>
+    <parent link="arm_link_0"/>
+    <child link="arm_link_1"/>
+    <axis xyz="0 0 -1"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="0" upper="5.89920788889" velocity="1.570795"/>
+
+  </joint>
+  <link name="arm_link_1">
+    <inertial>
+      <mass value="2.412"/>
+      <origin rpy="0 0 0" xyz="0.01489 0.00213 0.00213"/>
+      <inertia ixx="0.003863" ixy="-0.000979" ixz="0.000000" iyy="0.006196" iyz="0.000000" izz="0.006369"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm1.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="3.14159 0 0" />
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_1_convex.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_2" type="revolute">
+    <origin rpy="0 -1.13446305556 0" xyz="0.033 0 0.02"/>
+    <parent link="arm_link_1"/>
+    <child link="arm_link_2"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="0" upper="2.70525805556" velocity="1.570795"/>
+  </joint>
+  <link name="arm_link_2">
+    <inertial>
+      <mass value="1.155"/>
+      <origin rpy="0 0 0" xyz="0.10453 0.0017 -0.00297"/>
+      <inertia ixx="0.000823" ixy="0.000000" ixz="-0.000000" iyy="0.004447" iyz="0.000000" izz="0.004439"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.001 -0.03 0.077" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm2.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.570795 -1.570795 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_2_convex.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_3" type="revolute">
+    <origin rpy="0 2.54817855556 0" xyz="0.000 0.000 0.155"/>
+    <parent link="arm_link_2"/>
+    <child link="arm_link_3"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="-5.1836235" upper="0" velocity="1.570795"/>
+  </joint>
+  <link name="arm_link_3">
+    <inertial>
+      <mass value="0.934"/>
+      <origin rpy="0 0 0" xyz="0.0001 0.0967 0.02107"/>
+      <inertia ixx="0.002459" ixy="0.000000" ixz="0.000000" iyy="0.002571" iyz="-0.000000" izz="0.000535"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.000 0.027 0.08"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm3.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 3.14159" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_3_convex.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_4" type="revolute">
+    <origin rpy="0 -1.78896097222 0" xyz="0.000 0.000 0.135"/>
+    <parent link="arm_link_3"/>
+    <child link="arm_link_4"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="0" upper="3.57792194444" velocity="1.570795"/>
+  </joint>
+  <link name="arm_link_4">
+    <inertial>
+      <mass value="0.877"/>
+      <origin rpy="0 0 0" xyz="0.00011 0.05103 -0.02319"/>
+      <inertia ixx="0.000869" ixy="0.000000" ixz="-0.000000" iyy="0.001173" iyz="-0.000231" izz="0.001091"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 -0.008 0.026"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm4.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.570795 0 3.14159" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm_joint_4_convex.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="arm_joint_5" type="revolute">
+    <origin rpy="0 0 2.92342402778" xyz="0 0 0.114"/>
+    <parent link="arm_link_4"/>
+    <child link="arm_link_5"/>
+    <axis xyz="0 0 -1"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="0" upper="5.84684805556" velocity="1.570795"/>
+  </joint>
+  <link name="arm_link_5">
+    <inertial>
+      <mass value="0.251"/>
+      <origin rpy="0 0 0" xyz="0.0 0.00115 -0.01683"/>
+      <inertia ixx="0.000280" ixy="0.000000" ixz="0.000000" iyy="0.000339" iyz="0.000000" izz="0.000119"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.019"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm5.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_arm/arm5.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="gripper_palm_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="arm_link_5"/>
+    <child link="gripper_palm_link"/>
+  </joint>
+
+  <link name="gripper_palm_link">
+    <inertial>
+      <mass value="0.1"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/palm.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/palm_convex.dae"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <joint name="gripper_finger_joint_l" type="prismatic">
+    <origin rpy="0 0 0" xyz="0.0 0.0085 0.0"/>
+    <parent link="gripper_palm_link"/>
+    <child link="gripper_finger_link_l"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <limit effort="20" lower="0.0" upper="0.0115" velocity="1.0"/>
+  </joint>
+
+  <link name="gripper_finger_link_l">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" scale="1.5 1.5 1.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/finger_convex.dae" scale="1.5 1.5 1.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="gripper_finger_joint_r" type="prismatic">
+    <origin rpy="0 0 3.14159265359" xyz="0.0 -0.0085 0.0"/>
+    <parent link="gripper_palm_link"/>
+    <child link="gripper_finger_link_r"/>
+    <axis xyz="0 1 0"/>
+    <dynamics damping="1.0" friction="1.0"/>
+    <limit effort="20" lower="0.0" upper="0.0115" velocity="1.0"/>
+    <mimic joint="gripper_finger_joint_l" multiplier="1"/>
+  </joint>
+
+  <link name="gripper_finger_link_r">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae" scale="1.5 1.5 1.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://youbot_description/meshes/youbot_gripper/finger_convex.dae" scale="1.5 1.5 1.5"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+  <gazebo reference="gripper_palm_link">
+    <gravity>true</gravity>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="gripper_finger_link_l">
+    <gravity>true</gravity>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="gripper_finger_link_r">
+    <gravity>true</gravity>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+
+ <!-- <link name="pen">
+    <inertial>
+      <mass value="0.01"/>
+      <origin rpy="0 0 0.1" xyz="0.0 0.00115 -0.01683"/>
+      <inertia ixx="0.01" ixy="0.000000" ixz="0.000000" iyy="0.01" iyz="0.000000" izz="0.01"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0.05" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0.05" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="pen_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="gripper_palm_link"/>
+    <child link="pen"/>
+    <axis xyz="0 0 -1"/>
+    <dynamics damping="1" friction="1"/>
+    <limit effort="10000.0" lower="0" upper="5.84684805556" velocity="1.570795"/>
+  </joint>-->
+
+
+  <gazebo reference="base_footprint">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="plate_link">
+    <gravity>true</gravity>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="caster_link_fl">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="caster_link_fr">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="caster_link_bl">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="caster_link_br">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wheel_link_fr">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wheel_link_fl">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wheel_link_br">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="wheel_link_bl">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="base_laser_front_link">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  
+  <gazebo reference="arm_link_0">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="arm_link_1">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="arm_link_2">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="arm_link_3">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="arm_link_4">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+  <gazebo reference="arm_link_5">
+    <gravity>true</gravity>
+    <selfCollide>true</selfCollide>
+  </gazebo>
+
+
+</robot>

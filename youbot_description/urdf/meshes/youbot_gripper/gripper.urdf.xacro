@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="youbot_gripper" params="name parent *origin">
+    
+    <!-- Gripper palm link (static) -->
+    <joint name="${name}_palm_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${name}_palm_link"/>
+    </joint>
+
+    <link name="${name}_palm_link">
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/palm.dae"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/palm_convex.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Gripper left finger -->
+    <joint name="${name}_finger_joint_l" type="prismatic">
+      <origin xyz="0.0 0.0085 0.0" rpy="0 0 0"/>
+      <parent link="${name}_palm_link"/>
+      <child link="${name}_finger_link_l"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="1.0" friction="1.0"/>
+      <limit lower="0.0" upper="0.0115" effort="20" velocity="1.0"/>
+    </joint>
+
+    <link name="${name}_finger_link_l">
+      <inertial>
+        <mass value="0.01"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/finger_convex.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Gripper right finger -->
+    <joint name="${name}_finger_joint_r" type="prismatic">
+      <origin xyz="0.0 -0.0085 0.0" rpy="0 0 ${pi}"/>
+      <parent link="${name}_palm_link"/>
+      <child link="${name}_finger_link_r"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="1.0" friction="1.0"/>
+      <limit lower="0.0" upper="0.0115" effort="20" velocity="1.0"/>
+      <mimic joint="${name}_finger_joint_l" multiplier="1"/>
+    </joint>
+
+    <link name="${name}_finger_link_r">
+      <inertial>
+        <mass value="0.01"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/finger.dae"/>
+        </geometry>
+        <material name="Black"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://youbot_description/meshes/youbot_gripper/finger_convex.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Gazebo configuration for gripper links -->
+    <gazebo reference="${name}_palm_link">
+      <gravity>true</gravity>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    
+    <gazebo reference="${name}_finger_link_l">
+      <gravity>true</gravity>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+    
+    <gazebo reference="${name}_finger_link_r">
+      <gravity>true</gravity>
+      <selfCollide>false</selfCollide>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

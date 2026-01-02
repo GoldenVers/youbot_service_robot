@@ -1,0 +1,122 @@
+<mujoco model="youbot">
+  <compiler angle="radian"/>
+
+  <asset>
+    <!-- Materials for YouBot colors -->
+    <material name="base_color" rgba="0.3 0.3 0.3 1"/>
+    <material name="wheel_color" rgba="0.15 0.15 0.15 1"/>
+    <material name="arm_orange" rgba="0.95 0.55 0.05 1"/>
+    <material name="arm_black" rgba="0.1 0.1 0.1 1"/>
+    <material name="gripper_color" rgba="0.2 0.2 0.2 1"/>
+    <material name="plate_color" rgba="0.25 0.25 0.25 1"/>
+    <material name="sensor_color" rgba="0.1 0.1 0.1 1"/>
+    <material name="pen_color" rgba="0.1 0.1 0.8 1"/>
+    
+    <mesh name="base" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/base.stl"/>
+    <mesh name="base_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/base_convex.stl"/>
+    <mesh name="front-left_wheel" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/front-left_wheel.stl"/>
+    <mesh name="front-right_wheel" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/front-right_wheel.stl"/>
+    <mesh name="back-left_wheel" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/back-left_wheel.stl"/>
+    <mesh name="back-right_wheel" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_base/back-right_wheel.stl"/>
+    <mesh name="hokuyo" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/sensors/hokuyo.stl"/>
+    <mesh name="hokuyo_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/sensors/hokuyo_convex.stl"/>
+    <mesh name="plate" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_plate/plate.stl"/>
+    <mesh name="plate_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_plate/plate_convex.stl"/>
+    <mesh name="arm0" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm0.stl"/>
+    <mesh name="arm0_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm0_convex.stl"/>
+    <mesh name="arm1" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm1.stl"/>
+    <mesh name="arm_joint_1_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm_joint_1_convex.stl"/>
+    <mesh name="arm2" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm2.stl"/>
+    <mesh name="arm_joint_2_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm_joint_2_convex.stl"/>
+    <mesh name="arm3" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm3.stl"/>
+    <mesh name="arm_joint_3_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm_joint_3_convex.stl"/>
+    <mesh name="arm4" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm4.stl"/>
+    <mesh name="arm_joint_4_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm_joint_4_convex.stl"/>
+    <mesh name="arm5" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_arm/arm5.stl"/>
+    <mesh name="palm" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_gripper/palm.stl"/>
+    <mesh name="palm_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_gripper/palm_convex.stl"/>
+    <mesh name="finger" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_gripper/finger.stl" scale="1.5 1.5 1.5"/>
+    <mesh name="finger_convex" content_type="model/stl" file="/home/youssef/youbot/src/youbot_description/meshes/youbot_gripper/finger_convex.stl" scale="1.5 1.5 1.5"/>
+  </asset>
+
+  <worldbody>
+    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="base" material="base_color"/>
+    <geom type="mesh" mesh="base_convex" material="base_color"/>
+    <geom pos="0.3 0 -0.03" quat="1 -1.32679e-06 1.3268e-06 -1.32679e-06" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hokuyo" material="sensor_color"/>
+    <geom pos="0.3 0 -0.03" quat="1 -1.32679e-06 1.3268e-06 -1.32679e-06" type="mesh" mesh="hokuyo_convex" material="sensor_color"/>
+    <geom pos="-0.159 0 0.03" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="plate" material="plate_color"/>
+    <geom pos="-0.159 0 0.03" quat="1 0 0 0" type="mesh" mesh="plate_convex" material="plate_color"/>
+    <geom pos="0.143 0 0.046" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm0" material="arm_orange"/>
+    <geom pos="0.143 0 0.046" quat="1 0 0 0" type="mesh" mesh="arm0_convex" material="arm_orange"/>
+    <body name="wheel_link_fl" pos="0.228 0.158 -0.034">
+      <inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.4" diaginertia="0.0153925 0.0125446 0.0114568"/>
+      <joint name="wheel_joint_fl" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="front-left_wheel" material="wheel_color"/>
+      <geom size="0.05 0.025" quat="0.707107 0.707106 0 0" type="cylinder" material="wheel_color"/>
+    </body>
+    <body name="wheel_link_fr" pos="0.228 -0.158 -0.034">
+      <inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.4" diaginertia="0.0153925 0.0125446 0.0114568"/>
+      <joint name="wheel_joint_fr" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="front-right_wheel" material="wheel_color"/>
+      <geom size="0.05 0.025" quat="0.707107 0.707106 0 0" type="cylinder" material="wheel_color"/>
+    </body>
+    <body name="wheel_link_bl" pos="-0.228 0.158 -0.034">
+      <inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.4" diaginertia="0.0153925 0.0125446 0.0114568"/>
+      <joint name="wheel_joint_bl" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="back-left_wheel" material="wheel_color"/>
+      <geom size="0.05 0.025" quat="0.707107 0.707106 0 0" type="cylinder" material="wheel_color"/>
+    </body>
+    <body name="wheel_link_br" pos="-0.228 -0.158 -0.034">
+      <inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.4" diaginertia="0.0153925 0.0125446 0.0114568"/>
+      <joint name="wheel_joint_br" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="back-right_wheel" material="wheel_color"/>
+      <geom size="0.05 0.025" quat="0.707107 0.707106 0 0" type="cylinder" material="wheel_color"/>
+    </body>
+    <body name="arm_link_1" pos="0.167 0 0.141" quat="0.087157 0 0 0.996195">
+      <inertial pos="0.01489 0.00213 0.00213" quat="0.405566 0.405566 0.579238 0.579238" mass="2.412" diaginertia="0.00655238 0.006369 0.00350662"/>
+      <joint name="arm_joint_1" pos="0 0 0" axis="0 0 -1" range="0 5.89921" actuatorfrcrange="-10000 10000" damping="1" frictionloss="1"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm1" material="arm_orange"/>
+      <geom pos="0 0 0.02" quat="1.32679e-06 1 0 0" type="mesh" mesh="arm_joint_1_convex" material="arm_black"/>
+      <body name="arm_link_2" pos="0.033 0 0.02" quat="0.843392 0 -0.537299 0">
+        <inertial pos="0.10453 0.0017 -0.00297" quat="0.5 0.5 0.5 0.5" mass="1.155" diaginertia="0.004447 0.004439 0.000823"/>
+        <joint name="arm_joint_2" pos="0 0 0" axis="0 1 0" range="0 2.70526" actuatorfrcrange="-10000 10000" damping="1" frictionloss="1"/>
+        <geom pos="0.001 -0.03 0.077" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm2" material="arm_orange"/>
+        <geom pos="0 0 0" quat="0.500001 -0.5 -0.5 -0.499999" type="mesh" mesh="arm_joint_2_convex" material="arm_black"/>
+        <body name="arm_link_3" pos="0 0 0.155" quat="0.292373 0 0.956304 0">
+          <inertial pos="0.0001 0.0967 0.02107" quat="0.707107 0 0 0.707107" mass="0.934" diaginertia="0.002571 0.002459 0.000535"/>
+          <joint name="arm_joint_3" pos="0 0 0" axis="0 1 0" range="-5.18362 0" actuatorfrcrange="-10000 10000" damping="1" frictionloss="1"/>
+          <geom pos="0 0.027 0.08" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm3" material="arm_orange"/>
+          <geom quat="9.38186e-07 9.38185e-07 0.707106 0.707107" type="mesh" mesh="arm_joint_3_convex" material="arm_black"/>
+          <body name="arm_link_4" pos="0 0 0.135" quat="0.625924 0 -0.779884 0">
+            <inertial pos="0.00011 0.05103 -0.02319" quat="0.640772 0.299017 0.640772 0.299017" mass="0.877" diaginertia="0.00136661 0.00089739 0.000869"/>
+            <joint name="arm_joint_4" pos="0 0 0" axis="0 1 0" range="0 3.57792" actuatorfrcrange="-10000 10000" damping="1" frictionloss="1"/>
+            <geom pos="0 -0.008 0.026" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm4" material="arm_orange"/>
+            <geom quat="9.38186e-07 9.38185e-07 0.707106 0.707107" type="mesh" mesh="arm_joint_4_convex" material="arm_black"/>
+            <body name="arm_link_5" pos="0 0 0.114" quat="0.108868 0 0 0.994056">
+              <inertial pos="0 0.00083144 -0.012168" quat="0.707104 0.002058 -0.002058 0.707104" mass="0.361" diaginertia="0.0203595 0.0203006 0.0201191"/>
+              <joint name="arm_joint_5" pos="0 0 0" axis="0 0 -1" range="0 5.84685" actuatorfrcrange="-10000 10000" damping="1" frictionloss="1"/>
+              <geom pos="0 0 -0.019" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="arm5" material="arm_orange"/>
+              <geom type="mesh" mesh="arm5" material="arm_orange"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="palm" material="gripper_color"/>
+              <geom type="mesh" mesh="palm_convex" material="gripper_color"/>
+              <geom size="0.01 0.05" quat="0.999688 0 0 0.0249974" type="cylinder" contype="0" conaffinity="0" group="1" density="0" material="pen_color"/>
+              <geom size="0.01 0.05" quat="0.999688 0 0 0.0249974" type="cylinder" material="pen_color"/>
+              <body name="gripper_finger_link_l" pos="0 0.0085 0">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001"/>
+                <joint name="gripper_finger_joint_l" pos="0 0 0" axis="0 1 0" type="slide" range="0 0.0115" actuatorfrcrange="-20 20" damping="1" frictionloss="1"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger" material="gripper_color"/>
+                <geom type="mesh" mesh="finger_convex" material="gripper_color"/>
+              </body>
+              <body name="gripper_finger_link_r" pos="0 -0.0085 0" quat="0 0 0 1">
+                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001"/>
+                <joint name="gripper_finger_joint_r" pos="0 0 0" axis="0 1 0" type="slide" range="0 0.0115" actuatorfrcrange="-20 20" damping="1" frictionloss="1"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger" material="gripper_color"/>
+                <geom type="mesh" mesh="finger_convex" material="gripper_color"/>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

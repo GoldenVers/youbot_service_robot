@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="youbot">
+
+  <!-- ===================== -->
+  <!-- Include common files -->
+  <!-- ===================== -->
+
+  <xacro:include filename="$(find youbot_description)/urdf/common.xacro"/>
+
+  <xacro:include filename="$(find youbot_description)/urdf/materials.urdf.xacro"/>
+
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_arm/arm.urdf.xacro"/>
+
+  <xacro:include filename="$(find youbot_description)/urdf/youbot_gripper/gripper.urdf.xacro"/>
+
+  <!-- ros2_control (can comment out for MoveIt first) -->
+  <xacro:include filename="$(find youbot_description)/controller/ros_controller.urdf.xacro"/>
+
+  <!-- ===================== -->
+  <!-- Base link -->
+  <!-- ===================== -->
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="10.0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0"
+               iyy="0.1" iyz="0"
+               izz="0.1"/>
+    </inertial>
+  </link>
+
+  <!-- ===================== -->
+  <!-- Arm -->
+  <!-- ===================== -->
+
+  <xacro:youbot_arm name="arm" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:youbot_arm>
+
+  <!-- ===================== -->
+  <!-- Gripper -->
+  <!-- ===================== -->
+
+  <xacro:youbot_gripper name="gripper" parent="arm_link_5">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:youbot_gripper>
+
+</robot>

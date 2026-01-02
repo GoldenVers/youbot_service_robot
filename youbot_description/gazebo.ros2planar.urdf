@@ -1,0 +1,159 @@
+  <gazebo>
+    <plugin name='base_controller'
+		        filename='libgazebo_ros_planar_move.so'>
+			<ros>	
+				<namespace>/youbot</namespace>
+				<!-- <argument>cmd_vel:=cmd_vel</argument>
+				<argument>odom:=odom</argument> -->
+			</ros>
+
+			<!-- Set control loop update rate -->
+			<update_rate>100</update_rate>
+			<!-- Set odom publish rate -->
+			<publish_rate>10</publish_rate>
+
+			<!-- Set if odom required -->
+			<publish_odom>true</publish_odom>
+			<publish_odom_tf>true</publish_odom_tf>
+
+			<!-- Frame IDs -->
+			<robot_base_frame>base_footprint</robot_base_frame>
+
+			<!-- Set odom covariance -->
+			<covariance_x>0.0001</covariance_x>
+			<covariance_y>0.0001</covariance_y>
+			<covariance_yaw>0.01</covariance_yaw>
+	  </plugin>
+  </gazebo>
+
+
+
+    <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    
+    <!-- Front Right Wheel -->
+    <joint name="wheel_joint_fr">
+      <command_interface name="velocity">
+
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+    
+    <!-- Front Left Wheel -->
+    <joint name="wheel_joint_fl">
+      <command_interface name="velocity">
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+    
+    <!-- Rear Right Wheel - ADD THIS -->
+    <joint name="wheel_joint_br">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+    
+    <!-- Rear Left Wheel - ADD THIS -->
+    <joint name="wheel_joint_bl">
+      <command_interface name="velocity">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="position"/>
+    </joint>
+  </ros2_control>
+  <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+          <parameters>/home/youssef/fyp_ws/src/youbot_description/config/my_controllers.yaml</parameters>
+          
+      </plugin>
+  </gazebo>
+
+
+
+  <!--ros2 control template-->
+
+
+  <ros2_control name="Manipulation" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name = "arm_joint_1">
+      <command_interface name=""></command_interface>
+      <state_interface name=""></state_interface>  
+    </joint>
+    <joint name = "arm_joint_2">
+      <command_interface name=""></command_interface>
+      <state_interface name=""></state_interface>
+    </joint>
+    <joint name = "arm_joint_3">
+      <command_interface name=""></command_interface>
+      <state_interface name=""></state_interface>
+    </joint>
+    <joint name = "arm_joint_4">
+      <command_interface name=""></command_interface>
+      <state_interface name=""></state_interface>
+    </joint>
+    <joint name = "arm_joint_5">
+      <command_interface name=""></command_interface>
+      <state_interface name=""></state_interface>
+    </joint>
+  </ros2_control>
+    <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+          <parameters>/home/youssef/fyp_ws/src/youbot_description/config/my_controllers.yaml</parameters>
+          
+      </plugin>
+  </gazebo>
+
+
+<!--ros2 controller for the arm-->
+
+
+  <ros2_control name="Manipulation" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+
+    <joint name="arm_joint_1">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="arm_joint_2">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="arm_joint_3">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="arm_joint_4">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+    <joint name="arm_joint_5">
+      <command_interface name="position"/>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <parameters>/youssef/fyp_ws/src/youbot_manipulation/config/arm_controller.yaml</parameters>
+      </plugin>
+  </gazebo>
+
