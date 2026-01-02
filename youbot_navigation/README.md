@@ -7,7 +7,7 @@ The navigation2 stack is integrated to the current kuka youbot system, this time
 first off, launch the description package
 
 ```
-ros2 launch youbot_navigation.launch.py
+ros2 launch youbot_navigation navigation.launch.py
 ```
 
 this one will bringup the youbot in gazebo and rviz, with the joint state publisher and the xterm teleop twist menu, 
@@ -35,8 +35,7 @@ that's localization
 then for the navigation, while the previous command is running, we run this one 
 
 ```
-ros2 launch youbot_navigation nav2.launch.py 
-
+![alt text](image.png)
 ```
 
 that will automatically launch the nav2 stack, in rviz we choose the /global_cost_map and use goal_pose to move around. 
